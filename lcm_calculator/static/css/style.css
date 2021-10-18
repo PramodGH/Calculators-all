@@ -1,0 +1,17 @@
+  .box-div{
+        padding-left:400px;
+        padding-top:30px;
+    }
+    .btn{
+        background-color:yellow;
+    }
+    body{
+        color:green
+
+    }
+    .btn-step{
+        border: 1px solid blue;
+    }
+    .heading{
+        text-color:black;
+    }

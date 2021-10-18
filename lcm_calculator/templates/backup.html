@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lcm_calculator</title>
+</head>
+<style>
+    .form-div{
+        padding-left:500px;
+        padding-top:40px;
+    }
+    #btn{
+        background-color:yellow;
+    }
+    body{
+        color:green
+    }
+</style>
+
+<body>
+<div class="form-div">
+    <h2>Let's Find the L.C.M</h2>
+    <div >
+        <form method="post" class="form">
+            {% csrf_token %}
+            <label><bold>Number 1:</bold></label>
+            <input type="number" min="1" max="9999999" name="num1" placeholder="Number 1st" required ><br><br>
+            <label><bold>Number 2:</bold></label>
+            <input type="number" min="1" max="9999999" name="num2" placeholder="Number 2nd" required><br><br>
+            <div >
+                <button type="submit" id="btn">Calculate</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>
+--------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Result</title>
+</head>
+<style>
+    #result-div{
+        padding-left:500px;
+        padding-top:40px;
+    }
+    body{
+        color:green
+    }
+</style>
+<body>
+    <div id="result-div">
+        <h2>LCM of {{ num1 }} & {{ num2 }} is :  {{ lcm }}</h2> :
+        <h3>Prime factors of {{ num1 }} is : {{ prime1 }}</h3>
+        <h3>Prime factors of {{ num2 }} is : {{ prime2 }}</h3>
+        <h3>Result calculation : {{ mulresult }} = {{ lcm }}</h3>
+    </div>
+
+</body>
+</html>

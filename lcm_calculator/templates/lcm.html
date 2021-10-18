@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--<style>-->
+<!--    .box-div{-->
+<!--        padding-left:500px;-->
+<!--        padding-top:40px;-->
+<!--    }-->
+<!--    .btn{-->
+<!--        background-color:yellow;-->
+<!--    }-->
+
+<!--</style>-->
+
+
+<!--<div class="box-div">-->
+<!--    <h2>Let's Find the L.C.M</h2>-->
+<!--    <div >-->
+<!--        <form method="post" class="form">-->
+<!--            {% csrf_token %}-->
+<!--            <label><bold>Number 1:</bold></label>-->
+<!--            <input type="number" min="1" max="9999999" name="num1" placeholder="Number 1st" required ><br><br>-->
+<!--            <label><bold>Number 2:</bold></label>-->
+<!--            <input type="number" min="1" max="9999999" name="num2" placeholder="Number 2nd" required><br><br>-->
+<!--            <div >-->
+<!--                <button type="submit" class="btn">Calculate</button>-->
+<!--&lt;!&ndash;                <input type="reset" value="Reset" class="btn" >&ndash;&gt;-->
+<!--                 <button class="btn"><a href="{% url 'lcm' %}">Reset</a></button>-->
+<!--            </div>-->
+
+<!--        </form>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<div class="box-div">
+    <h2 id="heading" >Let's Find the L.C.M</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn" value="Calculate">&nbsp;&nbsp;&nbsp;
+        <button class="btn"><a href="{% url 'lcm' %}">Reset</a></button>
+    </form>
+</div>
+
+{% if flag %}
+     <div class="box-div">
+        <h2 class="heading">LCM of {{ num1 }} & {{ num2 }} is :  {{ lcm }}</h2>
+         <h2>Finding LCM using Prime Factorization Method </h2>
+         <button class="btn-step">Step1</button> Find Prime Factors of both numbers<br>
+        <h3>Prime Factorization of {{ num1 }} = {{ prime1 }}</h3>
+        <h3>Prime Factorization of {{ num2 }} = {{ prime2 }}</h3>
+         <button class="btn-step">Step2</button>Using all prime numbers found as often as each occurs most often we take
+        <h3>Result :{{ mulresult }} = {{ lcm }}</h3>
+    </div>
+{% endif %}
+{% endblock %}
